@@ -1,12 +1,23 @@
 {
   "name": "twenty-one-to-ninety",
   "private": true,
+  "engines": {
+    "node": ">=6.0.0",
+    "yarn": ">=0.25.2"
+  },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
+    "@fortawesome/react-fontawesome": "0.1.0-11",
     "@rails/webpacker": "3.5",
     "babel-preset-react": "~6.24.1",
+    "i": "^0.3.6",
+    "npm": "^6.3.0",
     "prop-types": "~15.6.0",
     "react": "~15.4.2",
     "react-dom": "~15.4.2",
+    "react-dropzone": "^4.2.13",
+    "react-router": "3.2.0",
     "redbox-react": "1.6.0"
   },
   "devDependencies": {
