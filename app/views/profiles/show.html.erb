@@ -1,9 +1,14 @@
 <div class="grid-container auto">
   <h1 class="page-title"> <%= @user.first_name %>'s Profile </h1>
-    <div class="profile-info columns medium-8">
-      <h4>Username: <%= @user.username %></h4>
-      <h4>Account Type: <%= current_user.admin? ? 'admin': "user" %></h4>
-      <h4>Email: <%= @user.email %></h4>
+    <div class="grid-x">
+      <div class="cell small-6">
+        photo
+      </div>
+      <div class="cell small-6">
+        <h4><strong>Username:</strong> <%= @user.username %></h4>
+        <h4><strong>Account Type:</strong> <%= current_user.admin? ? 'admin': "user" %></h4>
+        <h4><strong>Email:</strong> <%= @user.email %></h4>
+      </div>
     </div>
   <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: "submit-button"%>
 </div>
