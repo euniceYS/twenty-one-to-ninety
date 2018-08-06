@@ -13,8 +13,13 @@ feature 'user registers', %Q{
   #   an error message
 
   scenario 'provide valid registration information' do
+    user = FactoryBot.create(:user)
+
     visit new_user_registration_path
 
+    fill_in 'Username', with: user.username
+    fill_in 'First Name', with: user.first_name
+    fill_in 'Last Name', with: user.last_name
     fill_in 'Email', with: 'john@example.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'

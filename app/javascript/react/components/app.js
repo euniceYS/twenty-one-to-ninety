@@ -1,18 +1,25 @@
-import React from 'react'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStroopwafel } from '@fortawesome/free-solid-svg-icons'
+import React from 'react';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLifeRing } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faStroopwafel)
+library.add(faLifeRing);
 
 export const App = (props) => {
   return (
     <div>
-    <h1>Make It So React</h1>
-    Favorite Food: <FontAwesomeIcon icon="stroopwafel" />
+    <h1>Track Your New Habit
+      <FontAwesomeIcon
+        icon={'life-ring'}
+        color="#6DB65B"
+        size="sm"
+        pulse
+        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+        />
+      </h1>
   </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
