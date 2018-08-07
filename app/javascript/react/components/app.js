@@ -8,7 +8,7 @@ library.add(faLifeRing);
 
 export const App = (props) => {
   return (
-    <div>
+    <div className="grid-container auto">
     <h1>Track Your New Habit
       <FontAwesomeIcon
         icon={'life-ring'}
