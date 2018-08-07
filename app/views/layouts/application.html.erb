@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>21 to 90</title>
+  <title>21Days to 90Days</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
 
@@ -22,7 +22,7 @@
 
     <section class="top-bar-section">
       <ul class="right">
-        <%- if current_user -%>
+        <%- if user_signed_in? -%>
           <li> <%= link_to 'View Profile', profile_path(current_user) %>  </li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
