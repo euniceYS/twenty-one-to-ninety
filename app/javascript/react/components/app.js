@@ -7,7 +7,7 @@ import HabitShowContainer from '../containers/HabitShowContainer';
 export const App = (props) => {
   return (
     <Router history={browserHistory}>
-      <Route path='/' component={HabitsIndexContainer} />
+      <Route path='/habits' component={HabitsIndexContainer} />
       <Route path='/habits/:id' component={HabitShowContainer} />
     </Router>
   );
