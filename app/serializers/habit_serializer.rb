@@ -1,5 +1,5 @@
 class HabitSerializer < ActiveModel::Serializer
-  attributes :id, :title, :description, :start_date, :user_fullname
+  attributes :id, :title, :description, :start_date, :user_id, :user_fullname
 
   def description
     object.body
