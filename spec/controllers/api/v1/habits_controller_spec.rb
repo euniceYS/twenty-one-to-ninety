@@ -2,9 +2,9 @@ require "rails_helper"
 
 RSpec.describe Api::V1::HabitsController, type: :controller do
 
-  let!(:first_habit) { FactoryBot.create(:habit) }
-  let!(:second_habit) { FactoryBot.create(:habit) }
   let!(:admin) { FactoryBot.create(:user, role: "admin") }
+  let!(:first_habit) { FactoryBot.create(:habit, user_id: 1 ) }
+  let!(:second_habit) { FactoryBot.create(:habit, user_id: 1) }
 
   describe "GET#index" do
     it "should return a list of all the habits" do

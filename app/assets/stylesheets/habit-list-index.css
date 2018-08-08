@@ -1,0 +1,15 @@
+.habit-tile {
+    width: 80%;
+    border: 1px solid;
+    margin: 2% auto;
+    padding: 2%;
+    /* height: 188px; */
+    position: relative;
+}
+
+.fa-info-circle {
+    position: absolute;
+    bottom: 10%;
+    font-size: 1.4rem;
+    right: 1%;
+}

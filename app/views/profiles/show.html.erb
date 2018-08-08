@@ -5,6 +5,7 @@
         photo
       </div>
       <div class="cell small-6">
+        <h4><strong>Name:</strong> <%= @user.first_name + " " + @user.last_name %></h4>
         <h4><strong>Username:</strong> <%= @user.username %></h4>
         <h4><strong>Account Type:</strong> <%= current_user.admin? ? 'admin' : 'user' %></h4>
         <h4><strong>Email:</strong> <%= @user.email %></h4>

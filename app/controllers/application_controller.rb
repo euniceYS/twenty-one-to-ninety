@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
     update_added_attrs = [:username, :password, :password_confirmation, :current_password]
     devise_parameter_sanitizer.permit(:account_update, keys: update_added_attrs)
   end
+
+  def after_sign_in_path_for(resource)
+    request.env['omniauth.origin'] || stored_location_for(resource) || root_path
+  end
 end

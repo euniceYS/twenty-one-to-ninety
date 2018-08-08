@@ -1,55 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>21Days to 90Days</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <head>
+    <title>21Days to 90Days</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%= stylesheet_link_tag 'application', media: 'all' %>
 
-  <%# javascript_include_tag "vendor/modernizr" %>
+    <%# javascript_include_tag "vendor/modernizr" %>
 
-  <%= csrf_meta_tags %>
+    <%= csrf_meta_tags %>
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-</head>
-<body>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  </head>
+  <body>
 
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">21Days to 90Days</a></h1>
-      </li>
-    </ul>
-
-    <section class="top-bar-section">
-      <ul class="right">
-        <%- if user_signed_in? -%>
-          <li> <%= link_to 'View Profile', profile_path(current_user) %>  </li>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Log in', new_user_session_path %></li>
-        <%- end -%>
+    <nav class="top-bar">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">21Days to 90Days</a></h1>
+        </li>
       </ul>
-    </section>
-  </nav>
 
-  <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
-    </div>
-  <%- end -%>
+      <section class="top-bar-section">
+        <ul class="right">
+          <%- if user_signed_in? -%>
+            <li> <%= link_to 'View Profile', profile_path(current_user) %>  </li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <%- else -%>
+            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <li><%= link_to 'Log in', new_user_session_path %></li>
+          <%- end -%>
+        </ul>
+      </section>
+    </nav>
 
-  <%= yield %>
-
-  <%= javascript_include_tag 'application' %>
-
-  <%- if Rails.env.development? || Rails.env.test? -%>
-    <%= javascript_tag do %>
-      window.railsEnv = '<%= Rails.env %>'
+    <%- flash.each do |key, value| -%>
+      <div class="flash flash-<%= key %>">
+        <%= value %>
+      </div>
     <%- end -%>
-  <%- end -%>
-  <%= javascript_pack_tag 'application' %>
 
-  <%= yield :extra_footer %>
-</body>
+    <%= yield %>
+
+    <%= javascript_include_tag 'application' %>
+
+    <%- if Rails.env.development? || Rails.env.test? -%>
+      <%= javascript_tag do %>
+        window.railsEnv = '<%= Rails.env %>'
+      <%- end -%>
+    <%- end -%>
+    <%= javascript_pack_tag 'application' %>
+
+    <%= yield :extra_footer %>
+  </body>
 </html>
