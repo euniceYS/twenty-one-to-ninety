@@ -14,7 +14,7 @@
   <body>
 
     <nav class="top-bar">
-      <ul class="title-area">
+      <ul>
         <li class="name">
           <h1><a href="/">21Days to 90Days</a></h1>
         </li>
@@ -23,11 +23,12 @@
       <section class="top-bar-section">
         <ul class="right">
           <%- if user_signed_in? -%>
-            <li> <%= link_to 'View Profile', profile_path(current_user) %>  </li>
-            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+            <%= link_to 'My Habits', habits_path, class: 'nav-menu' %>
+            <%= link_to 'View Profile', profile_path(current_user), class: 'nav-menu' %>
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-menu' %>
           <%- else -%>
-            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-            <li><%= link_to 'Log in', new_user_session_path %></li>
+            <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-menu' %>
+            <%= link_to 'Log in', new_user_session_path, class: 'nav-menu' %>
           <%- end -%>
         </ul>
       </section>

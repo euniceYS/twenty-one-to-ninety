@@ -21,6 +21,9 @@ $social-brand-tumblr: #32506d;
   background: $login-box-bg;
   border-radius: $login-box-radius;
   overflow: hidden;
+  width: 70%;
+  position: relative;
+  margin: 5% auto;
 
   .or {
     @include absolute-center;
@@ -71,10 +74,10 @@ $social-brand-tumblr: #32506d;
 }
 
 .login-box-submit-button {
-  @include button(true, $primary-color, auto, auto, solid);
+  @include button(true, #734d7d, auto, auto, solid);
   border-radius: $global-radius;
   text-transform: uppercase;
-  margin-bottom: 0;
+  margin-bottom: 3%;
 }
 
 .login-box-submit-button:hover,
