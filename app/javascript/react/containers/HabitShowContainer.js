@@ -6,7 +6,6 @@ class HabitShowContainer extends Component {
     this.state = {
       title: "",
       description: "",
-
     };
   }
 
