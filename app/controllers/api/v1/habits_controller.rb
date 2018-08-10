@@ -22,6 +22,21 @@ class Api::V1::HabitsController < ApplicationController
     render json: @habit
   end
 
+  def create
+    habit = Habit.new(habit_params)
+    habit.user = current_user
+
+    if habit.save
+      render json: habit
+    else
+      render json: { errors: review.errors.full_messages }
+    end
+  end
+
+  def update
+    habit = Habit.find(params[:id])
+  end
+
   protected
 
   def authorize_destruction
@@ -29,5 +44,9 @@ class Api::V1::HabitsController < ApplicationController
       flash[:notice] = "Please sign up or sign in first."
       redirect_to user_session_path
     end
+  end
+
+  def habit_params
+    params.require(:habit).permit(:title, :body, :start_date)
   end
 end

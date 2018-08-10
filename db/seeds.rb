@@ -11,7 +11,7 @@ require 'faker'
 # Create Users
 User.create!(
   username: "roxy1234",
-  email: "roxanne45@gmail.com",
+  email: "roxanne45@test.com",
   first_name: "Roxanne",
   last_name: "Cojocariu",
   role: "user",
@@ -20,7 +20,7 @@ User.create!(
 
 User.create!(
   username: "asmith",
-  email: "asmith01@gmail.com",
+  email: "asmith01@test.com",
   first_name: "Alex",
   last_name: "Smith",
   role: "user",
@@ -28,143 +28,28 @@ User.create!(
 )
 
 User.create!(
-  username: "sg",
-  email: "sgurung02@gmail.com",
+  username: "sarmenG",
+  email: "sgurung02@test.com",
   first_name: "Sarmen",
   last_name: "Gurung",
   role: "user",
   password: "1234qw"
 )
 
-# Create habits
-Habit.create!(
-  body: "Run for 20 mins after work",
-  title: "Running",
-  start_date: Faker::Date.forward(10),
-  user: User.first
+User.create!(
+  username: "choiya19",
+  email: "choiya19@test.com",
+  first_name: "Alicia",
+  last_name: "Choi",
+  role: "user",
+  password: "1234qw"
 )
 
-Habit.create!(
-  body: "Spend 15 mins on Duolingo everyday",
-  title: "Learn Spanish",
-  start_date: Faker::Date.forward(10),
-  user: User.second
-)
-
-Habit.create!(
-  body: "Practice playing piano for 30 mins",
-  title: "Play piano",
-  start_date: Faker::Date.forward(10),
-  user: User.third
-)
-
-Habit.create!(
-  body: "Read for 30 mins before bed",
-  title: "Read fiction",
-  start_date: Faker::Date.forward(10),
-  user: User.first
-)
-
-Habit.create!(
-  body: "Spend 30 mins painting",
-  title: "Painting",
-  start_date: Faker::Date.forward(10),
-  user: User.second
-)
-
-Habit.create!(
-  body: "Check out DIY challenges from Pinterest",
-  title: "DIY challenges",
-  start_date: Faker::Date.forward(10),
-  user: User.second
-)
-
-# Check-ins
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean(0.2)
-)
-
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean(0.2)
-)
-
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean
-)
-
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean(0.2)
-)
-
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean
-)
-
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean
-)
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean(0.2)
-)
-
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean(0.2)
-)
-
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean
-)
-
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean(0.2)
-)
-
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean
-)
-
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean
-)
-
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean(0.2)
-)
-
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean(0.2)
-)
-
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean
-)
-
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean(0.2)
-)
-
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean
-)
-
-CheckIn.create!(
-  habit_id: Random.new.rand(19..30),
-  complete: Faker::Boolean.boolean
+User.create!(
+  username: "echoi06",
+  email: "echoi06@test.com",
+  first_name: "Eunice",
+  last_name: "Choi",
+  role: "user",
+  password: "1234qw"
 )

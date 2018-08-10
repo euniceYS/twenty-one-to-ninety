@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2018_08_05_205155) do
   create_table "habits", force: :cascade do |t|
     t.string "title", null: false
     t.string "body"
-    t.date "start_date", default: "2018-08-05"
+    t.date "start_date", default: "2018-08-10"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
