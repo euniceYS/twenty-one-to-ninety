@@ -31,7 +31,7 @@ class HabitShowContainer extends Component {
 
 
   render(){
-    let { id, title, description, start_date } = this.state.habit
+    let { id, title, description, start_date } = this.state.habit;
 
     return (
       <HabitDetailTile
