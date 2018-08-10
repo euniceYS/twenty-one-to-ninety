@@ -13,13 +13,12 @@ class Api::V1::HabitsController < ApplicationController
   end
 
   def show
-    binding.pry
     @habit = Habit.find(params[:id])
-    if current_user == @habit.user
-      @habit
-    else
-      @habit = {}
-    end
+      if current_user = @habit.user
+        @habit
+      else
+        @habit = {}
+      end
     render json: @habit
   end
 
