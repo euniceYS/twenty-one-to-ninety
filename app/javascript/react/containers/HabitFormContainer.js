@@ -36,7 +36,7 @@ class HabitFormContainer extends Component {
 
   render(){
     return(
-      <div className="grid-container auto">
+      <div className="grid-container auto clear">
         <h2>Add New Habit</h2>
           <form onSubmit={this.passPayload} >
            <div className="x-grid">
@@ -63,7 +63,7 @@ class HabitFormContainer extends Component {
                />
              </div>
            <div>
-             <input type="submit" value="Add Habit" className="column review_submit"/>
+             <input type="submit" value="Add Habit" className="add button"/>
            </div>
          </form>
       </div>

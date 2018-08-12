@@ -1,7 +1,12 @@
+#app{
+  margin-bottom: 6%;
+}
+
 .page-title {
   font-size: 3.2em;
-  margin: 2% auto 3%;
+  margin: 3% auto 3%;
   text-align: center;
+  color: #353535;
 }
 
 ul{
@@ -12,18 +17,22 @@ a, a:hover{
   color: #734d7d;
 }
 
-[type='submit'], [type='button']{
-  cursor: pointer;
+label{
+  font-size: 1.1rem;
 }
 
-.fa-pencil-alt{
-  color: #484848;
+[type='submit'], [type='button']{
+  cursor: pointer;
 }
 
 .flash{
   padding: 1%;
   background: #c7c7c7;
   letter-spacing: 1px;
+}
+
+.habit-tiles{
+  margin-bottom: 5%;
 }
 
 /* top-bar nav-menu*/
@@ -87,4 +96,26 @@ a, a:hover{
 .nav-menu:hover:after,
 .nav-menu.hover:after {
   right: 0;
+}
+
+/* First-time user home */
+ul.text-placeholder{
+  list-style: disc;
+  margin: 1rem 0 0 1.25rem;
+}
+
+.headline-placeholder{
+  position: absolute;
+  top: -25px;
+  font-size: 1.8rem;
+  background: #fff;
+  padding: 0 1%;
+  font-family: 'Raleway', sans-serif;
+}
+
+.placeholder{
+  position: relative;
+  padding: 3%;
+  border: 2px solid #795a7f;
+  margin: 4% 0;
 }

@@ -1,10 +1,13 @@
-import React from 'react';
+import React from 'react'
 
 const HabitDetailTile = (props) => {
   let descriptionList;
 
     if (props.description != null) {
-      descriptionList = <li className="">{props.description}</li>;
+      descriptionList = <div>
+                          <h3>description:</h3>
+                          {props.description}
+                        </div>;
     }
 
   return(
@@ -13,7 +16,8 @@ const HabitDetailTile = (props) => {
       <div className="">
         <ul>
           {descriptionList}
-          <li className="">{props.startDate}</li>
+          <hr />
+          <li className="">start date: {props.startDate}</li>
         </ul>
       </div>
     </div>

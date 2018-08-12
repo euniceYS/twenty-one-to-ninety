@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import HabitListTile from '../components/HabitListTile';
-import FirstUserHomeTile from '../components/FirstUserHomeTile';
+import FirstTimeUserHomeTile from '../components/FirstTimeUserHomeTile';
 import HomepageContainer from '../containers/HomepageContainer';
 import HabitFormContainer from '../containers/HabitFormContainer';
 
@@ -10,6 +10,7 @@ class HabitsIndexContainer extends Component {
     this.state = {
       habitsArray: [],
       currentUser: null,
+      checkInsArray: [],
       notice: "",
       errors: []
     };
@@ -17,10 +18,9 @@ class HabitsIndexContainer extends Component {
   }
 
   componentDidMount() {
-    fetch(`/api/v1/habits`, {
+    fetch(`/api/v1/habits.json`, {
       credentials: 'same-origin'
-    })
-    .then(response => {
+    }).then(response => {
       if (response.ok) {
         return response;
       } else {
@@ -33,7 +33,7 @@ class HabitsIndexContainer extends Component {
     .then(body => {
       this.setState({
         habitsArray: body.habits,
-        currentUser: body.current_user
+        currentUser: body.current_user,
       });
     })
     .catch(error => console.error(`Error in fetch: ${error}`));
@@ -45,8 +45,7 @@ class HabitsIndexContainer extends Component {
       method: 'POST',
       body: JSON.stringify(payload),
       headers: {'Content-Type': 'application/json'}
-    })
-    .then(response => {
+    }).then(response => {
       if (response.ok) {
         return response;
       }
@@ -80,34 +79,39 @@ class HabitsIndexContainer extends Component {
   render(){
     let habits = this.state.habitsArray.map( habit => {
       return (
-        <HabitListTile
-          key={habit.id}
-          id={habit.id}
-          title={habit.title}
-          startDate={habit.start_date}
-          />
+        <div key={habit.id}>
+          <HabitListTile
+            id={habit.id}
+            title={habit.title}
+            startDate={habit.start_date}
+            />
+        </div>
       );
     });
 
     let homepage;
     if (this.state.currentUser === null) {
-      homepage = <HomepageContainer />;
+      homepage = <HomepageContainer />
+
     } else if (this.state.currentUser !== null && this.state.habitsArray.length == 0){
       homepage =  <div className="grid-container auto">
-                    <FirstUserHomeTile
+                    <FirstTimeUserHomeTile
                       key={this.state.currentUser.id}
                       id={this.state.currentUser.id}
                       firstName={this.state.currentUser.first_name}
                       />
-                      <HabitFormContainer
-                        onSubmit = {this.onSubmit}
-                        currentUser = {this.state.currentUser}
-                        />
+                    <HabitFormContainer
+                      onSubmit = {this.onSubmit}
+                      currentUser = {this.state.currentUser}
+                      />
                   </div>
+
     } else {
       homepage =  <div className="grid-container auto">
                     <h1 className="page-title">{`${this.state.currentUser.first_name}'s Habits`}</h1>
-                    {habits}
+                    <div className="habit-tiles">
+                      {habits}
+                    </div>
                     <HabitFormContainer
                       onSubmit = {this.onSubmit}
                       currentUser = {this.state.currentUser}
@@ -116,9 +120,7 @@ class HabitsIndexContainer extends Component {
     }
     return(
       <div>
-        <div>
-          {homepage}
-        </div>
+        {homepage}
       </div>
     );
   }

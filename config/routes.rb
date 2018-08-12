@@ -6,14 +6,14 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:show]
 
-  resources :habits, only: [:index, :show, :new, :create, :edit, :destroy] do
+  resources :habits, only: [:index, :show, :new, :create, :update, :edit, :destroy] do
     resources :check_ins, only: [:show, :update]
   end
 
   namespace :api do
     namespace :v1 do
-      resources :habits, only: [:index, :show, :new, :create, :update, :destroy] do
-        resources :check_ins, only: [:show, :update]
+      resources :habits, only: [:index, :show, :new, :create, :update, :edit, :destroy] do
+        resources :check_ins, only: [:index, :show, :update]
       end
     end
   end
