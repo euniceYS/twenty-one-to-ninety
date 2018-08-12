@@ -1,9 +1,0 @@
-.login-box .user-registration-links {
-  color: #734d7d;
-  padding: 1% 1% 2%;
-  margin: 2%;
-}
-
-.login-box .user-registration-links:hover {
-  border-bottom: 2px solid rgba(115, 77, 125, 0.75);
-}

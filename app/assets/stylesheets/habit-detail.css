@@ -1,0 +1,43 @@
+.edit-delete{
+  margin-left: 3%;
+}
+
+.edit, .delete, .add, .edit-profile{
+  background-color: #6a3c72;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 1.5%;
+  margin: 1%;
+  font-size: 1.1rem;
+}
+
+.edit:hover, .delete:hover, .add:hover, .edit-profile:hover{
+  background-color: #6a3c72;
+  color: #fefefe;
+  box-shadow: 1px 4px 7px #bdbcbc;
+}
+
+.button:focus {
+  background-color: #6a3c72;
+  color: #fff;
+}
+
+.add, .edit, .edit-profile{
+  margin-left: 0;
+}
+
+.login-box .user-registration-links{
+  color: #734d7d;
+  padding: 1% 1% 2%;
+  margin: 2%;
+}
+
+.login-box .user-registration-links:hover{
+  border-bottom: 2px solid rgba(115, 77, 125, 0.75);
+}
+
+.edit-profile{
+  margin: 5%;
+  padding: 4%;
+  float: right;
+}

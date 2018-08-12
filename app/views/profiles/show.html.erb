@@ -1,15 +1,12 @@
+<h1 class="page-title"> <%= @user.first_name %>'s Profile </h1>
 <div class="grid-container auto">
-  <h1 class="page-title"> <%= @user.first_name %>'s Profile </h1>
-    <div class="grid-x">
-      <div class="cell small-6">
-        photo
-      </div>
-      <div class="cell small-6">
-        <h4><strong>Name:</strong> <%= @user.first_name + " " + @user.last_name %></h4>
-        <h4><strong>Username:</strong> <%= @user.username %></h4>
-        <h4><strong>Account Type:</strong> <%= current_user.admin? ? 'admin' : 'user' %></h4>
-        <h4><strong>Email:</strong> <%= @user.email %></h4>
-      </div>
+  <div class="profile">
+    <div class="profile-info">
+    <h4><strong>Name:</strong> <%= @user.first_name + " " + @user.last_name %></h4>
+    <h4><strong>Username:</strong> <%= @user.username %></h4>
+    <h4><strong>Account Type:</strong> <%= current_user.admin? ? 'admin' : 'user' %></h4>
+    <h4><strong>Email:</strong> <%= @user.email %></h4>
     </div>
-  <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: "submit-button"%>
+    <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: "edit-profile button"%>
+  </div>
 </div>

@@ -1,12 +1,8 @@
 class HabitSerializer < ActiveModel::Serializer
-  attributes :id, :title, :description, :start_date, :user_id, :user_fullname
+  attributes :id, :title, :description, :user_id, :user_fullname, :check_ins, :start_date
 
   def description
     object.body
-  end
-
-  def start_date
-    object.start_date.strftime("%B %d, %Y")
   end
 
   def user_fullname
@@ -14,4 +10,9 @@ class HabitSerializer < ActiveModel::Serializer
     user = User.find(user_id)
     user.first_name + ' ' + user.last_name
   end
+
+  def check_ins
+    object.check_ins
+  end
+
 end

@@ -1,0 +1,13 @@
+.profile{
+  width: 45%;
+  margin: 2% auto;
+}
+
+.profile-info{
+  border: 3px solid #6a3c72;
+  padding: 8%;
+  border-radius: 45px;
+  text-align: center;
+  width: 100%;
+  margin: 0% auto;
+}

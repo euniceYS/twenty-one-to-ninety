@@ -1,13 +1,12 @@
 class CheckInSerializer < ActiveModel::Serializer
-  attributes :id, :complete, :updated_at, :habit_title, :habit_id
+  attributes :id, :complete, :updated_at, :created_at
 
   def updated_at
     object.updated_at.strftime("%B %d, %Y")
   end
 
-  def habit_title
-    habit_id = object.habit_id
-    habit = Habit.find(habit_id)
-    habit.title
+  def created_at
+    object.created_at.strftime("%B %d, %Y")
   end
+
 end
