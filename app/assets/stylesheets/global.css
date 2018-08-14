@@ -1,10 +1,10 @@
-#app{
-  margin-bottom: 6%;
+body{
+  background: #e8e8e8;
 }
 
 .page-title {
-  font-size: 3.2em;
-  margin: 3% auto 3%;
+  font-size: 3.6em;
+  margin: 5% auto 4%;
   text-align: center;
   color: #353535;
 }
@@ -21,6 +21,10 @@ label{
   font-size: 1.1rem;
 }
 
+button:focus{
+  outline: none;
+}
+
 [type='submit'], [type='button']{
   cursor: pointer;
 }
@@ -31,20 +35,17 @@ label{
   letter-spacing: 1px;
 }
 
-.habit-tiles{
-  margin-bottom: 5%;
-}
 
 /* top-bar nav-menu*/
 .top-bar{
   padding: 0;
   box-shadow: 1px 1px 2px rgba(43, 43, 43, 0.32);
-  background-color: #D8E2DC;
+  background-color: #d8eee0;
 }
 
 .top-bar ul{
   margin-bottom: 0;
-  background-color: #D8E2DC;
+  background-color: transparent;
 }
 
 .top-bar a{

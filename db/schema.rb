@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2018_08_05_205155) do
 
   create_table "check_ins", force: :cascade do |t|
     t.boolean "complete", default: false
+    t.date "check_in_date", default: "2018-08-13"
     t.bigint "habit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

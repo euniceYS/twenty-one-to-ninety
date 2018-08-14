@@ -80,11 +80,9 @@ class HabitEditContainer extends Component {
     .then(body => {
       if (body.errors) {
         this.setState({
-
           errors: body.errors
         });
-      }
-      else {
+      } else {
         browserHistory.push(`/habits/${this.props.params.id}`)
       }
     })
