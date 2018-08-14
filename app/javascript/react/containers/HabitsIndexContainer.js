@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import HabitListTile from '../components/HabitListTile';
+import HabitListContainer from '../containers/HabitListContainer';
 import FirstTimeUserHomeTile from '../components/FirstTimeUserHomeTile';
 import HomepageContainer from '../containers/HomepageContainer';
 import HabitFormContainer from '../containers/HabitFormContainer';
@@ -80,7 +80,7 @@ class HabitsIndexContainer extends Component {
     let habits = this.state.habitsArray.map( habit => {
       return (
         <div key={habit.id}>
-          <HabitListTile
+          <HabitListContainer
             id={habit.id}
             title={habit.title}
             startDate={habit.start_date}
@@ -93,7 +93,7 @@ class HabitsIndexContainer extends Component {
     if (this.state.currentUser === null) {
       homepage = <HomepageContainer />
 
-    } else if (this.state.currentUser !== null && this.state.habitsArray.length == 0){
+    } else if (this.state.currentUser !== null && !this.state.habitsArray.length){
       homepage =  <div className="grid-container auto">
                     <FirstTimeUserHomeTile
                       key={this.state.currentUser.id}
@@ -109,7 +109,7 @@ class HabitsIndexContainer extends Component {
     } else {
       homepage =  <div className="grid-container auto">
                     <h1 className="page-title">{`${this.state.currentUser.first_name}'s Habits`}</h1>
-                    <div className="habit-tiles">
+                    <div>
                       {habits}
                     </div>
                     <HabitFormContainer

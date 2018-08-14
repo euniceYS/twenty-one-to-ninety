@@ -14,7 +14,7 @@
 .edit:hover, .delete:hover, .add:hover, .edit-profile:hover{
   background-color: #6a3c72;
   color: #fefefe;
-  box-shadow: 1px 4px 7px #bdbcbc;
+  box-shadow: 3px 4px 5px #717171;
 }
 
 .button:focus {
