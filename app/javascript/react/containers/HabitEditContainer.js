@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
-import InputTile from '../components/InputTile';
+import InputTile from '../components/InputTile'
 
 class HabitEditContainer extends Component {
   constructor(props){
@@ -9,8 +9,8 @@ class HabitEditContainer extends Component {
       title: "",
       body: "",
       start_date: "",
-      error: []
-    };
+      errors: []
+    }
     this.handleChange = this.handleChange.bind(this);
     this.passPayload = this.passPayload.bind(this);
     this.onEdit = this.onEdit.bind(this);
@@ -95,7 +95,7 @@ class HabitEditContainer extends Component {
     return(
       <div className="grid-container auto">
         <h2 className="page-title">Edit the Habit</h2>
-          <form onSubmit={this.passPayload} >
+          <form onSubmit={this.passPayload} className="habit-form">
            <div className="x-grid">
              <InputTile
                name="title"
@@ -118,7 +118,8 @@ class HabitEditContainer extends Component {
                value={this.state.start_date}
                handleChange={this.handleChange}
                />
-             </div>
+               {this.state.errors}
+               </div>
              <div>
                <input type="submit" value="Edit Habit" className="edit button"/>
              </div>

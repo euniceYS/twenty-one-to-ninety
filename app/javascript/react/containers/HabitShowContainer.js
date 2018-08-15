@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import HabitDetailTile from '../components/HabitDetailTile'
+import HabitProgressTile from '../components/HabitProgressTile'
 import { browserHistory } from 'react-router'
 import { Link } from 'react-router'
 
@@ -62,20 +63,37 @@ class HabitShowContainer extends Component {
   }
 
   render(){
-    let { id, title, description, start_date } = this.state.habit;
+    let { id, title, description, start_date} = this.state.habit;
 
+    let checkIns;
+    if (this.state.habit.check_ins !== undefined) {
+      checkIns = this.state.habit.check_ins.map( checkIn => {
+        return(
+          <div key = {checkIn.id} className="check-in-data">
+            <HabitProgressTile
+              id = {checkIn.id}
+              complete = {checkIn.complete}
+              checkInDate = {checkIn.check_in_date}
+              />
+          </div>
+        )
+      })
+    }
     return (
-      <div className="grid-container auto">
+      <div className="grid-container auto text-center">
         <HabitDetailTile
           id={id}
           title={title}
           description={description}
           startDate={start_date}
           />
-
         <div className="edit-delete">
           <Link to={`/habits/${this.props.params.id}/edit`} className="edit button">Edit</Link>
           <button onClick={this.confirm} className="delete button">Delete</button>
+        </div>
+        <div className="wrapper">
+          <h4>21 day progress</h4>
+          {checkIns}
         </div>
       </div>
     );

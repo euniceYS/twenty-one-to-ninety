@@ -1,0 +1,33 @@
+.wrapper{
+  margin: 1% auto;
+  text-align: center;
+  padding: 2%;
+}
+
+.wrapper h4{
+  border-bottom: 1px solid #cacaca;
+  font-size: 1.8rem;
+  padding-bottom: 1%;
+  margin-bottom: 1%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #6b6b6b;
+}
+
+.check-in-data{
+  margin: 1%;
+  width: 15%;
+  display: inline-block;
+}
+
+.check-in-progress{
+  list-style: none;
+  margin: 5%;
+}
+
+.check-in-progress li{
+  display: inline-block;
+  font-size: 1.1rem;
+  margin-right: 7%;
+}
