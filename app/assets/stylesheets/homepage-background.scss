@@ -27,7 +27,7 @@ $body-color: #999999;
             $overlay-color,
             $bg-overlay-second
           ),
-          url($image-path);
+          image-url($image-path);
       background-color: #CCCCCC;
       background-attachment: fixed;
       background-position: $position;
