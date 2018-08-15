@@ -92,7 +92,6 @@ class HabitsIndexContainer extends Component {
     let homepage;
     if (this.state.currentUser === null) {
       homepage = <HomepageContainer />
-
     } else if (this.state.currentUser !== null && !this.state.habitsArray.length){
       homepage =  <div className="grid-container auto">
                     <FirstTimeUserHomeTile

@@ -23,7 +23,7 @@ class Api::V1::HabitsController < ApplicationController
         habit = {}
       end
 
-    render json: habit
+    render json: habit, serializer: HabitShowSerializer
   end
 
   def create
