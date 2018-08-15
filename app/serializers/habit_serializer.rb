@@ -5,18 +5,18 @@ class HabitSerializer < ActiveModel::Serializer
     object.body
   end
 
-  def check_ins
-    object.check_ins.as_json(only: [:id, :complete, :habit_id, :check_in_date])
-  end
+  # def check_ins
+  #   object.check_ins.as_json(only: [:id, :complete, :check_in_date])
+  # end
 
   def daily_check_in
+    check_ins = object.check_ins
     unless check_ins.empty?
       check_ins.each do |today|
         if today["check_in_date"] == Date.today
-          return today
+          return today.as_json(only: [:id, :complete, :check_in_date])
         end
       end
     end
   end
-
 end

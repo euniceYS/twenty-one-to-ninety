@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import HabitDetailTile from '../components/HabitDetailTile'
+import HabitProgressContainer from '../containers/HabitProgressContainer'
 import { browserHistory } from 'react-router'
 import { Link } from 'react-router'
 
@@ -63,7 +64,7 @@ class HabitShowContainer extends Component {
 
   render(){
     let { id, title, description, start_date } = this.state.habit;
-
+    debugger
     return (
       <div className="grid-container auto">
         <HabitDetailTile
@@ -77,6 +78,10 @@ class HabitShowContainer extends Component {
           <Link to={`/habits/${this.props.params.id}/edit`} className="edit button">Edit</Link>
           <button onClick={this.confirm} className="delete button">Delete</button>
         </div>
+
+        <HabitProgressContainer
+          id = {id}
+          />
       </div>
     );
   }

@@ -1,3 +1,3 @@
 class CheckInSerializer < ActiveModel::Serializer
-  attributes :id, :complete, :check_in_date 
+  attributes :id, :habit_id, :complete, :check_in_date
 end
