@@ -32,8 +32,8 @@ class HabitListContainer extends Component{
   }
 
   onClickCheckIn() {
-    // the value of `check_ins/:id` params does not matter, but there must be a value to make a fetch PATCH. I chose '1' here.
-    fetch(`/api/v1/habits/${this.props.id}/check_ins/1`, {
+    let checkInId = this.state.habit.daily_check_in.id
+    fetch(`/api/v1/habits/${this.props.id}/check_ins/${checkInId}`, {
       credentials: 'same-origin',
       method: 'PATCH',
       headers: {'Content-Type': 'application/json'},
@@ -66,6 +66,7 @@ class HabitListContainer extends Component{
     ){
       checkStatus = this.state.habit.daily_check_in.complete
     }
+
     return (
       <div className="habit-tiles">
         <div className="habit-info">

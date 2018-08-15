@@ -39,9 +39,21 @@ class Api::V1::HabitsController < ApplicationController
   def update
     edited_habit = Habit.find(params[:id])
     if edited_habit.update(habit_params)
+      existing_check_ins = edited_habit.check_ins
+      new_start_date = edited_habit.start_date
+
+      existing_check_ins.each do |check_in|
+        check_in_attributes = {
+          complete: false,
+          check_in_date: new_start_date
+        }
+        check_in.update_attributes(check_in_attributes)
+        new_start_date += 1
+      end
+
       render json: edited_habit
     else
-      render json: { errors: review.errors.full_messages }
+      render json: { errors: edited_habit.errors.full_messages }
     end
   end
 
