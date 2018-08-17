@@ -17,7 +17,7 @@
 
 .check-in-data{
   margin: 1%;
-  width: 15%;
+  width: 12%;
   display: inline-block;
 }
 
@@ -30,4 +30,12 @@
   display: inline-block;
   font-size: 1.1rem;
   margin-right: 7%;
+}
+
+.future-check-box {
+  color: #a0a0a0;
+}
+
+.check-in-progress li{
+  cursor: pointer;
 }

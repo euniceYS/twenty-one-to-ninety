@@ -5,16 +5,16 @@ $login-box-radius: $global-radius;
 $login-box-bg: $white;
 $login-box-shadow: 0 2px 4px rgba($black, 0.4);
 $login-box-inner-padding: 2.5rem;
-$login-box-social-bg: url('pexels-photo-395132.jpeg');
-$social-brand-facebook: #3b5998;
-$social-brand-twitter: #55acee;
-$social-brand-linkedin: #007bb5;
-$social-brand-youtube: #bb0000;
-$social-brand-instagram: #125688;
-$social-brand-pinterest: #cb2027;
-$social-brand-google-plus: #dd4b39;
-$social-brand-github: #000000;
-$social-brand-tumblr: #32506d;
+$image-path: 'pexels-photo-395132.jpeg';
+// $social-brand-facebook: #3b5998;
+// $social-brand-twitter: #55acee;
+// $social-brand-linkedin: #007bb5;
+// $social-brand-youtube: #bb0000;
+// $social-brand-instagram: #125688;
+// $social-brand-pinterest: #cb2027;
+// $social-brand-google-plus: #dd4b39;
+// $social-brand-github: #000000;
+// $social-brand-tumblr: #32506d;
 
 .login-box {
   box-shadow: $login-box-shadow;
@@ -25,18 +25,18 @@ $social-brand-tumblr: #32506d;
   position: relative;
   margin: 5% auto;
 
-  .or {
-    @include absolute-center;
-    @include badge;
-    font-size: 1.275rem;
-    background: $medium-gray;
-    box-shadow: 1px 2px 4px rgba(69, 69, 69, 0.3);
-    text-transform: uppercase;
-
-    @include breakpoint(small only) {
-      top: 85%;
-    }
-  }
+  // .or {
+  //   @include absolute-center;
+  //   @include badge;
+  //   font-size: 1.275rem;
+  //   background: $medium-gray;
+  //   box-shadow: 1px 2px 4px rgba(69, 69, 69, 0.3);
+  //   text-transform: uppercase;
+  //
+  //   @include breakpoint(small only) {
+  //     top: 85%;
+  //   }
+  // }
 }
 
 .login-box-title {
@@ -51,7 +51,7 @@ $social-brand-tumblr: #32506d;
 }
 
 .login-box-social-section {
-  background: $login-box-social-bg;
+  background: image-url($image-path);
   background-size: cover;
   background-position: center;
 }
@@ -90,26 +90,26 @@ $social-brand-tumblr: #32506d;
   box-shadow: 0 1px 2px rgba($black, 0.4);
 }
 
-.login-box-social-button-facebook {
-  @include button(true, $social-brand-facebook, auto, auto, solid);
-  font-weight: 500;
-  margin-bottom: 1.25rem;
-  text-transform: uppercase;
-}
-
-.login-box-social-button-twitter {
-  @include button(true, $social-brand-twitter, auto, $white, solid);
-  font-weight: 500;
-  margin-bottom: 1.25rem;
-  text-transform: uppercase;
-}
-
-.login-box-social-button-google {
-  @include button(true, $social-brand-google-plus, auto, $white, solid);
-  font-weight: 500;
-  margin-bottom: 1.25rem;
-  text-transform: uppercase;
-}
+// .login-box-social-button-facebook {
+//   @include button(true, $social-brand-facebook, auto, auto, solid);
+//   font-weight: 500;
+//   margin-bottom: 1.25rem;
+//   text-transform: uppercase;
+// }
+//
+// .login-box-social-button-twitter {
+//   @include button(true, $social-brand-twitter, auto, $white, solid);
+//   font-weight: 500;
+//   margin-bottom: 1.25rem;
+//   text-transform: uppercase;
+// }
+//
+// .login-box-social-button-google {
+//   @include button(true, $social-brand-google-plus, auto, $white, solid);
+//   font-weight: 500;
+//   margin-bottom: 1.25rem;
+//   text-transform: uppercase;
+// }
 
 [class*="login-box-social-button-"]:hover,
 [class*="login-box-social-button-"]:focus {
