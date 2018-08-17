@@ -1,5 +1,6 @@
 class Habit < ApplicationRecord
   validates :title, length: { minimum: 2 }
+  validates :start_date, presence: true
   validate :start_date_cannot_be_in_the_past
 
   belongs_to :user

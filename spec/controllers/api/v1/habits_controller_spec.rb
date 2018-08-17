@@ -7,7 +7,7 @@ RSpec.describe Api::V1::HabitsController, type: :controller do
   let!(:second_habit) { FactoryBot.create(:habit, user_id: 1) }
 
   describe "GET#index" do
-    it "should return a list of all the habits" do
+    xit "should return a list of all the habits" do
 
       sign_in admin
 
