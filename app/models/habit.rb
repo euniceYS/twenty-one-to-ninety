@@ -26,4 +26,14 @@ class Habit < ApplicationRecord
     end
     return check_ins_dates
   end
+
+  def daily_check_in
+    unless check_ins.empty?
+      check_ins.each do |today|
+        if today["check_in_date"] == Date.today
+          return today.as_json(only: [:id, :complete, :check_in_date])
+        end
+      end
+    end
+  end
 end

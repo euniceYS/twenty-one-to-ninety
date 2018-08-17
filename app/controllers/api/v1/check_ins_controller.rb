@@ -17,6 +17,6 @@ class Api::V1::CheckInsController < ApplicationController
 
     habit = Habit.find(params[:habit_id])
 
-    render json: habit
+    render json: habit, serializer: HabitShowSerializer
   end
 end

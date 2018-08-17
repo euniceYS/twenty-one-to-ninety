@@ -12,6 +12,7 @@ class HabitShowContainer extends Component {
     }
     this.handleDelete = this.handleDelete.bind(this);
     this.confirm = this.confirm.bind(this);
+    this.onClickCheckIn = this.onClickCheckIn.bind(this)
   }
 
   componentDidMount(){
@@ -62,18 +63,55 @@ class HabitShowContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  onClickCheckIn(selectedId) {
+    let checkInId = this.state.habit.check_ins.filter(checkIn => checkIn.id === selectedId)[0].id
+    fetch(`/api/v1/habits/${this.props.params.id}/check_ins/${checkInId}`, {
+      credentials: 'same-origin',
+      method: 'PATCH',
+      headers: {'Content-Type': 'application/json'},
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        habit: body.habit
+      })
+    })
+    .catch(error => {
+      console.error(`Error in fetch: ${error.message}`)
+    });
+  }
+
   render(){
     let { id, title, description, start_date} = this.state.habit;
+    let checkIns, inFuture;
+    let today = new Date(Date.now()).toISOString().split('T')[0];
 
-    let checkIns;
     if (this.state.habit.check_ins !== undefined) {
       checkIns = this.state.habit.check_ins.map( checkIn => {
+        if (checkIn.check_in_date >= today) {
+          inFuture = true;
+        } else {
+          inFuture = false;
+        }
+
         return(
           <div key = {checkIn.id} className="check-in-data">
             <HabitProgressTile
               id = {checkIn.id}
               complete = {checkIn.complete}
               checkInDate = {checkIn.check_in_date}
+              dayNumber = {checkIn.day_number}
+              onClickCheckIn = {this.onClickCheckIn}
+              inFuture = {inFuture}
               />
           </div>
         )
