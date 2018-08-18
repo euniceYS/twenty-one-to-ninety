@@ -64,8 +64,7 @@ class HabitShowContainer extends Component {
   }
 
   onClickCheckIn(selectedId) {
-    let checkInId = this.state.habit.check_ins.filter(checkIn => checkIn.id === selectedId)[0].id
-    fetch(`/api/v1/habits/${this.props.params.id}/check_ins/${checkInId}`, {
+    fetch(`/api/v1/habits/${this.props.params.id}/check_ins/${selectedId}`, {
       credentials: 'same-origin',
       method: 'PATCH',
       headers: {'Content-Type': 'application/json'},
@@ -92,11 +91,13 @@ class HabitShowContainer extends Component {
 
   render(){
     let { id, title, description, start_date} = this.state.habit;
-    let checkIns, inFuture;
     let today = new Date(Date.now()).toISOString().split('T')[0];
+    let firstTwentyOneCheckIn = this.state.habit.twenty_one_check_ins;
+    let additionalCheckIn = this.state.habit.additional_check_ins;
+    let initialCheckIns, addedCheckIns, inFuture, ninetyDayHeadline;
 
-    if (this.state.habit.check_ins !== undefined) {
-      checkIns = this.state.habit.check_ins.map( checkIn => {
+    if (firstTwentyOneCheckIn !== undefined) {
+      initialCheckIns = firstTwentyOneCheckIn.map( checkIn => {
         if (checkIn.check_in_date > today) {
           inFuture = true;
         } else {
@@ -117,6 +118,32 @@ class HabitShowContainer extends Component {
       })
     }
 
+    if (additionalCheckIn !== undefined && additionalCheckIn.length !== 0) {
+      addedCheckIns = additionalCheckIn.map( checkIn => {
+        if (checkIn.check_in_date > today) {
+          inFuture = true;
+        } else {
+          inFuture = false;
+        }
+        return(
+          <div key = {checkIn.id} className="check-in-data">
+            <HabitProgressTile
+              id = {checkIn.id}
+              complete = {checkIn.complete}
+              checkInDate = {checkIn.check_in_date}
+              dayNumber = {checkIn.day_number}
+              onClickCheckIn = {this.onClickCheckIn}
+              inFuture = {inFuture}
+              />
+          </div>
+        )
+      })
+    }
+
+    if (additionalCheckIn !== undefined && additionalCheckIn.length !== 0) {
+      ninetyDayHeadline = <h4>90 day progress</h4>
+    }
+
     return (
       <div className="grid-container auto text-center">
         <HabitDetailTile
@@ -131,7 +158,11 @@ class HabitShowContainer extends Component {
         </div>
         <div className="wrapper">
           <h4>21 day progress</h4>
-          {checkIns}
+          {initialCheckIns}
+        </div>
+        <div className="wrapper">
+          {ninetyDayHeadline}
+          {addedCheckIns}
         </div>
       </div>
     );

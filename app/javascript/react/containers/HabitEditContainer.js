@@ -92,11 +92,21 @@ class HabitEditContainer extends Component {
   }
 
   render(){
+    let errorDiv, errorItems;
+
+    if (this.state.errors.length != 0) {
+      errorItems = this.state.errors.map( error => {
+        return (<li key={error}>{error}</li>)
+      })
+      errorDiv = <div className="errors">{errorItems}</div>
+    }
+
     return(
       <div className="grid-container auto">
         <h2 className="page-title">Edit the Habit</h2>
-          <form onSubmit={this.passPayload} className="habit-form">
-           <div className="x-grid">
+        <form onSubmit={this.passPayload} className="habit-form">
+          <div className="x-grid">
+            {errorDiv}
              <InputTile
                name="title"
                label="What is your next habit?"
@@ -118,12 +128,9 @@ class HabitEditContainer extends Component {
                value={this.state.start_date}
                handleChange={this.handleChange}
                />
-               {this.state.errors}
-               </div>
-             <div>
-               <input type="submit" value="Edit Habit" className="edit button"/>
-             </div>
-         </form>
+             <input type="submit" value="Edit Habit" className="edit button"/>
+          </div>
+        </form>
       </div>
     );
   }

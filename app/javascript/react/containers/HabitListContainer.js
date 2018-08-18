@@ -53,8 +53,8 @@ class HabitListContainer extends Component{
     })
     .then(response => response.json())
     .then(body => {
-      if(body.habit.check_ins.length === 21) {
-        this.checkForPrompt(body.habit.check_ins)
+      if(body.habit.twenty_one_check_ins.length === 21) {
+        this.checkForPrompt(body.habit.twenty_one_check_ins)
       }
       this.setState({
         habit: body.habit,
@@ -98,10 +98,8 @@ class HabitListContainer extends Component{
     })
     .then(response => response.json())
     .then(body => {
-      debugger
       this.setState({
-        habit: body.habit,
-        completedMessage: "You can do this!"
+        habit: body.habit
       })
     })
     .catch(error => {

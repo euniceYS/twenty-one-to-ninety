@@ -32,7 +32,7 @@ class Api::V1::HabitsController < ApplicationController
     if habit.save
       render json: habit
     else
-      render json: { errors: review.errors.full_messages }
+      render json: { errors: habit.errors.full_messages }
     end
   end
 

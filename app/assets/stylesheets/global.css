@@ -36,21 +36,22 @@ button:focus{
   letter-spacing: 1px;
 }
 
-.error {
-  padding: 1%;
-  color: #d81f1f;
-  border: 2px solid;
-  margin: 1% 0;
+.errors, .notice {
+  padding: 0.8rem;
+  text-transform: uppercase;
   letter-spacing: 1px;
-  width: 280px;
   font-weight: 700;
+  border-radius: 27px;
+  color: #fff;
+  margin-bottom: 2%;
 }
 
-/* error message from Habit form */
-.habit-form .x-grid{
-  color: #f00;
-  font-style: italic;
-  margin-bottom: 2%;
+.errors{
+  background: #ae2222;
+}
+
+.notice{
+  background: #919191;
 }
 
 /* top-bar nav-menu*/
