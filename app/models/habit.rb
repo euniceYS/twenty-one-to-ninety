@@ -16,7 +16,7 @@ class Habit < ApplicationRecord
 
   def build_twenty_one_check_ins
     twenty_one_days.each do |date|
-      CheckIn.create!(habit_id: id, check_in_date: date)
+      CheckIn.create!(habit_id: id, check_in_date: date, complete: true)
     end
   end
 
@@ -35,10 +35,10 @@ class Habit < ApplicationRecord
   end
 
   def make_to_ninety_days(check_ins)
-    next_challenge_date = check_ins.last.check_in_date
-    check_ins_dates = [ next_challenge_date + 1 ]
+    next_check_in_date = check_ins.last.check_in_date
+    check_ins_dates = [ next_check_in_date + 1 ]
     68.times do |n|
-      check_ins_dates << next_challenge_date.next_day(n)
+      check_ins_dates << next_check_in_date.next_day(n)
     end
     return check_ins_dates
   end

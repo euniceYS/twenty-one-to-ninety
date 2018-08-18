@@ -89,7 +89,19 @@ class HabitsIndexContainer extends Component {
       );
     });
 
-    let homepage;
+    let errorDiv, errorItems, notice, homepage;
+
+    if (this.state.errors.length != 0) {
+      errorItems = this.state.errors.map( error => {
+        return (<li key={error}>{error}</li>)
+      })
+      errorDiv = <div className="errors">{errorItems}</div>
+    }
+
+    if (this.state.notice){
+      notice = <li className="notice" key={notice}>{this.state.notice}</li>
+    }
+
     if (this.state.currentUser === null) {
       homepage = <VisitorHomepage />
     } else if (this.state.currentUser !== null && !this.state.habitsArray.length){
@@ -111,6 +123,8 @@ class HabitsIndexContainer extends Component {
                     <div>
                       {habits}
                     </div>
+                    {notice}
+                    {errorDiv}
                     <HabitFormContainer
                       onSubmit = {this.onSubmit}
                       currentUser = {this.state.currentUser}
