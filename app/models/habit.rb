@@ -28,6 +28,21 @@ class Habit < ApplicationRecord
     return check_ins_dates
   end
 
+  def build_additional_check_ins(new_dates, habit)
+    new_dates.each do |date|
+      CheckIn.create!(habit: habit, check_in_date: date)
+    end
+  end
+
+  def make_to_ninety_days(check_ins)
+    next_challenge_date = check_ins.last.check_in_date
+    check_ins_dates = [ next_challenge_date + 1 ]
+    68.times do |n|
+      check_ins_dates << next_challenge_date.next_day(n)
+    end
+    return check_ins_dates
+  end
+
   def daily_check_in
     unless check_ins.empty?
       check_ins.each do |today|

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :habits, only: [:index, :show, :new, :create, :update, :edit, :destroy] do
         resources :check_ins, only: [:index, :show, :update]
+        resources :additional_check_ins, only: [:create]
       end
     end
   end
