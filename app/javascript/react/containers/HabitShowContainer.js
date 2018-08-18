@@ -97,12 +97,11 @@ class HabitShowContainer extends Component {
 
     if (this.state.habit.check_ins !== undefined) {
       checkIns = this.state.habit.check_ins.map( checkIn => {
-        if (checkIn.check_in_date >= today) {
+        if (checkIn.check_in_date > today) {
           inFuture = true;
         } else {
           inFuture = false;
         }
-
         return(
           <div key = {checkIn.id} className="check-in-data">
             <HabitProgressTile
@@ -117,6 +116,7 @@ class HabitShowContainer extends Component {
         )
       })
     }
+
     return (
       <div className="grid-container auto text-center">
         <HabitDetailTile

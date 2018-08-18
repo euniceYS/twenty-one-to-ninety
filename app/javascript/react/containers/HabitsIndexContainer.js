@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import HabitListContainer from '../containers/HabitListContainer';
-import FirstTimeUserHomeTile from '../components/FirstTimeUserHomeTile';
-import HomepageContainer from '../containers/HomepageContainer';
-import HabitFormContainer from '../containers/HabitFormContainer';
+import React, { Component } from 'react'
+import HabitListContainer from '../containers/HabitListContainer'
+import FirstTimeUserHomeTile from '../components/FirstTimeUserHomeTile'
+import VisitorHomepage from '../components/VisitorHomepage'
+import HabitFormContainer from '../containers/HabitFormContainer'
 
 class HabitsIndexContainer extends Component {
   constructor(props){
@@ -91,7 +91,7 @@ class HabitsIndexContainer extends Component {
 
     let homepage;
     if (this.state.currentUser === null) {
-      homepage = <HomepageContainer />
+      homepage = <VisitorHomepage />
     } else if (this.state.currentUser !== null && !this.state.habitsArray.length){
       homepage =  <div className="grid-container auto">
                     <FirstTimeUserHomeTile
