@@ -13,7 +13,7 @@ const HabitDetailTile = (props) => {
   return(
     <div className="grid-container auto">
       <h1 className="page-title">{props.title}</h1>
-      <div className="">
+      <div className="habit-description">
         <ul>
           {descriptionList}
           <hr />

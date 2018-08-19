@@ -16,7 +16,7 @@ class Habit < ApplicationRecord
 
   def build_twenty_one_check_ins
     twenty_one_days.each do |date|
-      CheckIn.create!(habit_id: id, check_in_date: date, complete: true)
+      CheckIn.create!(habit_id: id, check_in_date: date)
     end
   end
 
