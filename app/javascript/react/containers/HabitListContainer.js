@@ -133,8 +133,8 @@ class HabitListContainer extends Component{
             />
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default HabitListContainer;
+export default HabitListContainer

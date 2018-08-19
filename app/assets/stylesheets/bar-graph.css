@@ -1,0 +1,12 @@
+.grid-container > .graph-bar{
+  margin: 6% 4%;
+}
+
+rect:first-child {
+  fill: #e8e8e8;
+}
+
+.graph-bar text:first-child{
+  font-size: 20px;
+  fill: #616161;
+}

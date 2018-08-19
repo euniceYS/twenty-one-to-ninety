@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const VisitorHomepage = (props) => {
   return(
@@ -17,4 +17,4 @@ const VisitorHomepage = (props) => {
   );
 }
 
-export default VisitorHomepage;
+export default VisitorHomepage

@@ -1,9 +1,8 @@
-import React from 'react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-
-import HabitsIndexContainer from '../containers/HabitsIndexContainer';
-import HabitShowContainer from '../containers/HabitShowContainer';
-import HabitEditContainer from '../containers/HabitEditContainer';
+import React from 'react'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import HabitsIndexContainer from '../containers/HabitsIndexContainer'
+import HabitShowContainer from '../containers/HabitShowContainer'
+import HabitEditContainer from '../containers/HabitEditContainer'
 
 export const App = (props) => {
   $(function(){
@@ -28,4 +27,4 @@ export const App = (props) => {
   );
 };
 
-export default App;
+export default App

@@ -1,7 +1,6 @@
-import React from 'react';
+import React from 'react'
 
 const FirstTimeUserHomeTile = (props) => {
-
   return (
     <div className="grid-container auto">
       <h1 className="page-title">{`${props.firstName}'s Habits`}</h1>
@@ -16,7 +15,7 @@ const FirstTimeUserHomeTile = (props) => {
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FirstTimeUserHomeTile;
+export default FirstTimeUserHomeTile

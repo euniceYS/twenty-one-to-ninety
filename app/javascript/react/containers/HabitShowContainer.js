@@ -165,8 +165,8 @@ class HabitShowContainer extends Component {
           {addedCheckIns}
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default HabitShowContainer;
+export default HabitShowContainer

@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import { render } from 'react-dom'
+import { Chart } from 'react-google-charts'
 import HabitListContainer from '../containers/HabitListContainer'
 import FirstTimeUserHomeTile from '../components/FirstTimeUserHomeTile'
 import VisitorHomepage from '../components/VisitorHomepage'
 import HabitFormContainer from '../containers/HabitFormContainer'
+import BarChart from '../components/BarChart'
 
 class HabitsIndexContainer extends Component {
   constructor(props){
@@ -12,7 +15,8 @@ class HabitsIndexContainer extends Component {
       currentUser: null,
       checkInsArray: [],
       notice: "",
-      errors: []
+      errors: [],
+      graphData: []
     };
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -34,6 +38,7 @@ class HabitsIndexContainer extends Component {
       this.setState({
         habitsArray: body.habits,
         currentUser: body.current_user,
+        graphData: body.graph_data
       });
     })
     .catch(error => console.error(`Error in fetch: ${error}`));
@@ -67,6 +72,7 @@ class HabitsIndexContainer extends Component {
         this.setState({
           habitsArray: this.state.habitsArray.concat(body.habit),
           notice: "Habit successfully added",
+          graphData: body.graph_data,
           errors: []
         });
       }
@@ -111,6 +117,8 @@ class HabitsIndexContainer extends Component {
                       id={this.state.currentUser.id}
                       firstName={this.state.currentUser.first_name}
                       />
+                    {notice}
+                    {errorDiv}
                     <HabitFormContainer
                       onSubmit = {this.onSubmit}
                       currentUser = {this.state.currentUser}
@@ -123,6 +131,9 @@ class HabitsIndexContainer extends Component {
                     <div>
                       {habits}
                     </div>
+                    <BarChart
+                      data = {this.state.graphData}
+                      />
                     {notice}
                     {errorDiv}
                     <HabitFormContainer
@@ -139,4 +150,4 @@ class HabitsIndexContainer extends Component {
   }
 }
 
-export default HabitsIndexContainer;
+export default HabitsIndexContainer

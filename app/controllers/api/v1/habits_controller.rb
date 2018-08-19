@@ -2,6 +2,7 @@ class Api::V1::HabitsController < ApplicationController
   skip_before_action :verify_authenticity_token, :only => [:create, :destroy]
 
   def index
+    graph_data = prep_data
     if current_user
       habits = current_user.habits
       habits.order(:start_date)
@@ -11,7 +12,8 @@ class Api::V1::HabitsController < ApplicationController
 
     render json: {
       habits: ActiveModel::Serializer::CollectionSerializer.new(habits, each_serializer: HabitSerializer),
-      current_user: current_user
+      current_user: current_user,
+      graph_data: graph_data
     }
   end
 
@@ -30,7 +32,11 @@ class Api::V1::HabitsController < ApplicationController
     habit = Habit.new(habit_params)
     habit.user = current_user
     if habit.save
-      render json: habit
+      graph_data = prep_data
+      render json: {
+        habit: HabitSerializer.new(habit),
+        graph_data: graph_data
+      }
     else
       render json: { errors: habit.errors.full_messages }
     end
@@ -51,6 +57,7 @@ class Api::V1::HabitsController < ApplicationController
         new_start_date += 1
       end
 
+
       render json: edited_habit
     else
       render json: { errors: edited_habit.errors.full_messages }
@@ -67,6 +74,29 @@ class Api::V1::HabitsController < ApplicationController
   end
 
   protected
+  def prep_data
+    graph_data = [['Habit', 'Completed', 'Total Days']]
+    habits = Habit.all
+
+    habits.each do |habit|
+      habit_count = 0
+      total_days = 0
+
+      if habit.check_ins.length == 21
+        total_days = 21
+      else
+        total_days = 90
+      end
+
+      habit.check_ins.each do |check_in|
+        if check_in.complete
+          habit_count += 1
+        end
+      end
+      graph_data << [habit.title, habit_count, total_days]
+    end
+    graph_data
+  end
 
   def habit_params
     params.require(:habit).permit(:title, :body, :start_date)

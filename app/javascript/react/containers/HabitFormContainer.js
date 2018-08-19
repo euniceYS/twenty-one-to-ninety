@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import InputTile from '../components/InputTile';
+import React, { Component } from 'react'
+import InputTile from '../components/InputTile'
 
 class HabitFormContainer extends Component {
   constructor(props){
@@ -67,8 +67,8 @@ class HabitFormContainer extends Component {
            </div>
          </form>
       </div>
-    );
+    )
   }
 }
 
-export default HabitFormContainer;
+export default HabitFormContainer
