@@ -25,4 +25,4 @@ const HabitProgressTile = (props) => {
   );
 }
 
-export default HabitProgressTile;
+export default HabitProgressTile

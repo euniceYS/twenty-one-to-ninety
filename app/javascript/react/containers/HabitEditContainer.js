@@ -132,8 +132,8 @@ class HabitEditContainer extends Component {
           </div>
         </form>
       </div>
-    );
+    )
   }
 }
 
-export default HabitEditContainer;
+export default HabitEditContainer

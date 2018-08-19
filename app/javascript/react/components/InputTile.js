@@ -1,7 +1,6 @@
-import React from 'react';
+import React from 'react'
 
 const InputTile = (props) => {
-
   return(
     <div>
       <label>{props.label}
@@ -13,7 +12,7 @@ const InputTile = (props) => {
         />
       </label>
     </div>
-  );
-};
+  )
+}
 
-export default InputTile;
+export default InputTile

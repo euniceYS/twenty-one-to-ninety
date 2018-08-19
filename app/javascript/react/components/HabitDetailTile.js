@@ -3,12 +3,12 @@ import React from 'react'
 const HabitDetailTile = (props) => {
   let descriptionList;
 
-    if (props.description != null) {
-      descriptionList = <div>
-                          <h3>description:</h3>
-                          {props.description}
-                        </div>;
-    }
+  if (props.description != null) {
+    descriptionList = <div>
+                        <h3>description:</h3>
+                        {props.description}
+                      </div>
+  }
 
   return(
     <div className="grid-container auto">
@@ -24,4 +24,4 @@ const HabitDetailTile = (props) => {
   );
 };
 
-export default HabitDetailTile;
+export default HabitDetailTile
