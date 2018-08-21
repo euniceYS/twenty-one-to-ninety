@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_05_205155) do
+ActiveRecord::Schema.define(version: 2018_08_20_201640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "check_ins", force: :cascade do |t|
     t.boolean "complete", default: false
-    t.date "check_in_date", default: "2018-08-13"
+    t.date "check_in_date", null: false
     t.bigint "habit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2018_08_05_205155) do
   create_table "habits", force: :cascade do |t|
     t.string "title", null: false
     t.string "body", null: false
-    t.date "start_date", default: "2018-08-11"
+    t.date "start_date", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
