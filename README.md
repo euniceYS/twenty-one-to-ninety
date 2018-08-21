@@ -2,25 +2,8 @@
 
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TwentyOne to Ninety is a habit tracker that helps users track their habits for 21 days. If users meet 21 straight days, users have an option to extend a tracking period to 90 days for that habit.
 
-Things you may want to cover:
+This breakable toy integrates React front-end onto Ruby on Rails with a PostgreSQL database and Foundation framework with custom CSS. I also incorporated the back end logic using Date objects to track users’ daily check-ins to display overall progress on their habits.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+https://twentyone-to-ninety.herokuapp.com/
