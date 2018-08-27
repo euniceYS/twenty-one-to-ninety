@@ -2,10 +2,11 @@ class Api::V1::HabitsController < ApplicationController
   skip_before_action :verify_authenticity_token, :only => [:create, :destroy]
 
   def index
-    graph_data = prep_data
+
     if current_user
       habits = current_user.habits
       habits.order(:start_date)
+      graph_data = prep_data
     else
       habits = []
     end
@@ -75,27 +76,28 @@ class Api::V1::HabitsController < ApplicationController
 
   protected
   def prep_data
-    graph_data = [['Habit', 'Completed', 'Total Days']]
-    habits = Habit.all
+    if current_user
+      graph_data = [['Habit', 'Completed', 'Total Days']]
+      habits = current_user.habits
+      habits.each do |habit|
+        habit_count = 0
+        total_days = 0
 
-    habits.each do |habit|
-      habit_count = 0
-      total_days = 0
-
-      if habit.check_ins.length == 21
-        total_days = 21
-      else
-        total_days = 90
-      end
-
-      habit.check_ins.each do |check_in|
-        if check_in.complete
-          habit_count += 1
+        if habit.check_ins.length == 21
+          total_days = 21
+        else
+          total_days = 90
         end
+
+        habit.check_ins.each do |check_in|
+          if check_in.complete
+            habit_count += 1
+          end
+        end
+        graph_data << [habit.title, habit_count, total_days]
       end
-      graph_data << [habit.title, habit_count, total_days]
     end
-    graph_data
+      graph_data
   end
 
   def habit_params

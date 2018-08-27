@@ -2,7 +2,7 @@ class Api::V1::CheckInsController < ApplicationController
   skip_before_action :verify_authenticity_token, :only => [:create, :destroy]
 
   def index
-    check_ins = CheckIn.where(habit_id: params[:habit_id]).order(:id)
+    check_ins = CheckIn.where( habit_id: params[:habit_id] ).order(:id)
 
     render json: check_ins
   end

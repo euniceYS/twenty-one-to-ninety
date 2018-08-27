@@ -1,4 +1,6 @@
 class Api::V1::AdditionalCheckInsController < ApplicationController
+  skip_before_action :verify_authenticity_token, :only => [:create, :destroy]
+  
   def create
     habit = Habit.find(params[:habit_id])
     check_ins = habit.check_ins[0..20]
