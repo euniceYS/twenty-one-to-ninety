@@ -15,7 +15,7 @@ RSpec.describe Api::V1::CheckInsController, type: :controller do
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
       expect(returned_json.length).to eq 1
-      expect(returned_json["check_ins"].length).to eq 21
+      expect(returned_json["check_ins"][0]["habit_id"]).to eq 1
       expect(returned_json["check_ins"][0]["complete"]).to eq false
     end
   end
