@@ -19,7 +19,7 @@ const HabitProgressTile = (props) => {
 
   return (
     <div className="check-in-progress">
-      <li >Day {props.dayNumber}</li>
+      <li>Day {props.dayNumber}</li>
       {checkInIcon}
     </div>
   );
